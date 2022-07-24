@@ -1,3 +1,4 @@
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { useState, useEffect, useRef } from 'react';
 import css from './App.module.css';
 
@@ -19,7 +20,8 @@ const App = () => {
     if (
       contacts.find(contact => contact.name.toLowerCase() === normalizeName)
     ) {
-      alert('This name allready added');
+      Notify.failure('This name allready added');
+      // alert('This name allready added');
       return;
     }
     setContacts(contacts => [{ id, name, number }, ...contacts]);
